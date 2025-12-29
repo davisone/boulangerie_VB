@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Counter from "./components/Counter";
+import ReviewsCarousel from "./components/ReviewsCarousel";
 
 export default function Home() {
   return (
@@ -330,8 +331,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Facebook Feed */}
-      <section className="py-20 bg-white">
+      {/* Section Réseaux Sociaux */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -340,38 +341,68 @@ export default function Home() {
               </h2>
               <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Découvrez nos dernières créations, actualités et promotions en temps réel
+                Découvrez nos dernières créations, actualités et promotions en temps réel sur notre page Facebook
               </p>
             </div>
 
-            {/* Facebook Page Plugin */}
-            <div className="flex justify-center">
-              <iframe
-                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fvanessaetbaptiste&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                width="500"
-                height="600"
-                style={{ border: "none", overflow: "hidden" }}
-                scrolling="no"
-                frameBorder="0"
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                className="rounded-2xl shadow-lg"
-              ></iframe>
-            </div>
-
-            {/* Call to action */}
-            <div className="mt-8 text-center">
-              <a
-                href="https://www.facebook.com/vanessaetbaptiste"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center bg-[#1877F2] hover:bg-[#166FE5] text-white font-semibold py-4 px-10 rounded-full transition-colors text-lg shadow-xl"
-              >
-                <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+            {/* Card Facebook */}
+            <div className="bg-white rounded-2xl p-8 shadow-xl text-center max-w-2xl mx-auto">
+              <div className="mb-6">
+                <svg className="w-20 h-20 mx-auto text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
-                Suivre notre page Facebook
-              </a>
+              </div>
+
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Boulangerie Vanessa et Baptiste
+              </h3>
+
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Retrouvez nos dernières créations, nos nouveautés, nos horaires d&apos;ouverture exceptionnels
+                et toutes nos actualités sur notre page Facebook officielle.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://www.facebook.com/vanessaetbaptiste"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-[#1877F2] hover:bg-[#166FE5] text-white font-semibold py-4 px-10 rounded-full transition-colors text-lg shadow-xl"
+                >
+                  <svg className="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                  Visiter notre page Facebook
+                </a>
+
+                <a
+                  href="https://www.facebook.com/vanessaetbaptiste"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-white hover:bg-gray-50 text-gray-800 font-semibold py-4 px-10 rounded-full transition-colors text-lg shadow-xl border-2 border-gray-200"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  J&apos;aime
+                </a>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-gray-200">
+                <div>
+                  <div className="text-2xl font-bold text-primary">1500+</div>
+                  <div className="text-sm text-gray-600">Abonnés</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary">4.8/5</div>
+                  <div className="text-sm text-gray-600">Note moyenne</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-primary">14 ans</div>
+                  <div className="text-sm text-gray-600">D&apos;expérience</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -422,8 +453,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Section Nous Trouver - Map & Horaires */}
+      {/* Section Avis Clients */}
       <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Avis de nos Clients
+            </h2>
+            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Découvrez ce que nos clients pensent de nos produits et services
+            </p>
+          </div>
+
+          <ReviewsCarousel />
+
+          {/* Badge Google */}
+          <div className="flex justify-center mt-8">
+            <a
+              href="https://www.google.com/maps/place/?q=place_id:ChIJxw16Xu8dD0gRSzAxu-imWa0"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-full shadow-lg transition-colors border border-gray-200"
+            >
+              <svg className="w-6 h-6 mr-2" viewBox="0 0 48 48">
+                <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"></path>
+                <path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"></path>
+                <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.910 11.910 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"></path>
+                <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"></path>
+              </svg>
+              Voir tous nos avis sur Google
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Nous Trouver - Map & Horaires */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
@@ -472,19 +538,23 @@ export default function Home() {
                       <div className="space-y-2 text-gray-700">
                         <div className="flex justify-between">
                           <span className="font-semibold">Lundi - Mardi</span>
-                          <span>07h00 - 13h00</span>
+                          <span>06h30 - 19h30</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="font-semibold">Mercredi</span>
-                          <span>Fermé</span>
+                          <span>09h00 - 18h00</span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="font-semibold">Jeudi - Vendredi</span>
-                          <span>07h00 - 13h00</span>
+                          <span className="font-semibold">Jeudi</span>
+                          <span className="text-gray-500">Fermé</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span className="font-semibold">Vendredi</span>
+                          <span>06h30 - 19h30</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="font-semibold">Samedi</span>
-                          <span>07h00 - 13h00</span>
+                          <span>07h00 - 19h00</span>
                         </div>
                         <div className="flex justify-between">
                           <span className="font-semibold">Dimanche</span>
@@ -506,8 +576,8 @@ export default function Home() {
                     <div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">Contact</h3>
                       <p className="text-gray-700">
-                        <a href="tel:+33299075258" className="hover:text-primary transition-colors">
-                          02 99 07 52 58
+                        <a href="tel:+33299643580" className="hover:text-primary transition-colors">
+                          02 99 64 35 80
                         </a>
                       </p>
                     </div>
@@ -529,6 +599,106 @@ export default function Home() {
                 ></iframe>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section SEO - Texte optimisé pour le référencement */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <article className="prose prose-lg max-w-none">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Votre Boulangerie Artisanale à Chavagne - Vanessa & Baptiste
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-8 text-gray-700">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    Boulangerie Traditionnelle à Chavagne (35310)
+                  </h3>
+                  <p className="mb-4 leading-relaxed">
+                    Située au cœur de <strong>Chavagne</strong>, la <strong>Boulangerie Vanessa & Baptiste</strong> est
+                    votre <strong>boulangerie artisanale</strong> de référence depuis 2010. Nous sommes des <strong>artisans
+                    boulangers</strong> passionnés, spécialisés dans la fabrication de <strong>pain traditionnel</strong>,
+                    de <strong>pâtisseries fines</strong> et de <strong>chocolats artisanaux</strong>.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    Notre <strong>boulangerie à Chavagne</strong> propose une large gamme de <strong>pains frais</strong>
+                    cuits quotidiennement : <strong>baguette tradition</strong>, pain de campagne, pain aux céréales,
+                    pain complet et bien d&apos;autres spécialités. Tous nos produits sont fabriqués sur place avec
+                    des ingrédients de qualité sélectionnés auprès de fournisseurs locaux.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    Pâtisserie et Chocolaterie Artisanale
+                  </h3>
+                  <p className="mb-4 leading-relaxed">
+                    En tant que <strong>pâtissiers chocolatiers</strong> expérimentés, nous créons des
+                    <strong> pâtisseries sur-mesure</strong> pour toutes vos occasions : anniversaires, mariages,
+                    baptêmes et événements professionnels. Notre <strong>chocolaterie artisanale</strong> propose
+                    des créations uniques : truffes, pralinés, ganaches et ballotins personnalisés.
+                  </p>
+                  <p className="mb-4 leading-relaxed">
+                    Découvrez également nos <strong>viennoiseries</strong> fraîches chaque matin : croissants,
+                    pains au chocolat, pains aux raisins, chaussons aux pommes. Notre équipe de 15 collaborateurs
+                    met tout son savoir-faire au service de votre gourmandise.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                  Boulangerie Ouverte à Chavagne - Ille-et-Vilaine (35)
+                </h3>
+                <div className="grid md:grid-cols-3 gap-6 text-gray-700">
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">Nos Spécialités</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• Pain artisanal et baguette tradition</li>
+                      <li>• Viennoiseries fraîches</li>
+                      <li>• Pâtisseries fines</li>
+                      <li>• Chocolats maison</li>
+                      <li>• Gâteaux personnalisés</li>
+                      <li>• Sandwichs et snacking</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">Zones Desservies</h4>
+                    <p className="text-sm leading-relaxed">
+                      <strong>Boulangerie à Chavagne</strong> et communes environnantes :
+                      Rennes, L&apos;Hermitage, Mordelles, Cintré, Bruz, Saint-Grégoire.
+                      Livraison possible pour les commandes professionnelles et événements.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-2">Pourquoi Nous Choisir ?</h4>
+                    <ul className="space-y-1 text-sm">
+                      <li>• 14 ans d&apos;expérience</li>
+                      <li>• Fabrication 100% artisanale</li>
+                      <li>• Ingrédients locaux</li>
+                      <li>• Produits frais quotidiens</li>
+                      <li>• Équipe de 15 professionnels</li>
+                      <li>• Service personnalisé</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 text-center">
+                <p className="text-gray-600 mb-4">
+                  <strong>Boulangerie Vanessa & Baptiste</strong> - 1 Rue du Centre, 35310 Chavagne -
+                  Tél : <a href="tel:+33299643580" className="text-primary hover:underline">02 99 64 35 80</a>
+                </p>
+                <p className="text-sm text-gray-500">
+                  Mots-clés : boulangerie Chavagne, boulanger Chavagne, pâtisserie Chavagne, chocolaterie Chavagne,
+                  pain artisanal 35, boulangerie Rennes, boulangerie Ille-et-Vilaine, artisan boulanger 35310,
+                  baguette tradition Chavagne, pâtissier Chavagne
+                </p>
+              </div>
+            </article>
           </div>
         </div>
       </section>

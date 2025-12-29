@@ -26,9 +26,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
+      <head>
+        {/* Facebook SDK */}
+        <script
+          async
+          defer
+          crossOrigin="anonymous"
+          src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v18.0"
+        ></script>
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Div nécessaire pour le SDK Facebook */}
+        <div id="fb-root"></div>
+
         <Header />
         <main>{children}</main>
         <Footer />
