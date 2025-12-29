@@ -62,7 +62,7 @@ export default function Home() {
       </section>
 
       {/* Section Présentation avec photo */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gradient-to-br from-amber-50/30 via-white to-orange-50/20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -70,7 +70,7 @@ export default function Home() {
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   Bienvenue chez Vanessa & Baptiste
                 </h2>
-                <div className="w-24 h-1 bg-primary mb-6"></div>
+                <div className="w-24 h-1 bg-gradient-to-r from-primary to-orange-400 mb-6"></div>
                 <p className="text-lg text-gray-700 leading-relaxed mb-6">
                   Créée en 2010, notre boulangerie est le fruit de la passion de deux artisans
                   boulangers dévoués. Depuis plus de 14 ans, nous servons la commune de Chavagne
@@ -83,14 +83,14 @@ export default function Home() {
                 </p>
                 <Link
                   href="/qui-sommes-nous"
-                  className="inline-block bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-full transition-colors"
+                  className="inline-block bg-gradient-to-r from-primary to-orange-500 hover:from-primary-dark hover:to-orange-600 text-white font-semibold py-3 px-8 rounded-full transition-all shadow-lg hover:shadow-xl"
                 >
                   En savoir plus
                 </Link>
               </div>
               <div className="order-1 md:order-2">
                 <div
-                  className="h-96 rounded-2xl shadow-2xl bg-cover bg-center"
+                  className="h-96 rounded-2xl shadow-2xl bg-cover bg-center transform hover:scale-105 transition-transform duration-300 ring-4 ring-primary/10"
                   style={{
                     backgroundImage: "url('/images/PP.jpg')",
                   }}
@@ -102,11 +102,21 @@ export default function Home() {
       </section>
 
       {/* Section Compteurs */}
-      <section className="py-16 bg-primary text-white">
-        <div className="container mx-auto px-4">
+      <section className="relative py-16 text-white overflow-hidden">
+        {/* Image de fond avec overlay */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1517686469429-8bdb88b9f907?q=80&w=2070&auto=format&fit=crop')",
+          }}
+        >
+          <div className="absolute inset-0 bg-primary/90"></div>
+        </div>
+
+        <div className="relative z-10 container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto text-center">
             <Counter end={14} suffix="+" label="Années d'expérience" duration={2500} />
-            <Counter end={15} suffix=" collaborateurs" label="Équipe dévouée" duration={2500} />
+            <Counter end={15} label="Collaborateurs" duration={2500} />
             <Counter end={3} label="Expertises" duration={2000} />
           </div>
         </div>
@@ -424,21 +434,29 @@ export default function Home() {
           {/* Grille de photos aperçu */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto mb-8">
             <div
-              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden relative group"
               style={{ backgroundImage: "url('/images/15.png')" }}
-            ></div>
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
             <div
-              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden relative group"
               style={{ backgroundImage: "url('/images/9.png')" }}
-            ></div>
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
             <div
-              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden relative group"
               style={{ backgroundImage: "url('/images/16.png')" }}
-            ></div>
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
             <div
-              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+              className="h-64 bg-cover bg-center rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden relative group"
               style={{ backgroundImage: "url('/images/PP.jpg')" }}
-            ></div>
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
           </div>
 
           {/* Bouton vers la galerie complète */}
@@ -454,13 +472,17 @@ export default function Home() {
       </section>
 
       {/* Section Avis Clients */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-20 bg-gradient-to-br from-blue-50/30 via-white to-purple-50/20 relative overflow-hidden">
+        {/* Décoration de fond */}
+        <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-orange-300/10 rounded-full blur-3xl"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               Avis de nos Clients
             </h2>
-            <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-primary via-orange-400 to-primary mx-auto mb-8"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Découvrez ce que nos clients pensent de nos produits et services
             </p>
@@ -474,7 +496,7 @@ export default function Home() {
               href="https://www.google.com/maps/place/?q=place_id:ChIJxw16Xu8dD0gRSzAxu-imWa0"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-full shadow-lg transition-colors border border-gray-200"
+              className="inline-flex items-center bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transition-all border border-gray-200"
             >
               <svg className="w-6 h-6 mr-2" viewBox="0 0 48 48">
                 <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"></path>
@@ -604,101 +626,93 @@ export default function Home() {
       </section>
 
       {/* Section SEO - Texte optimisé pour le référencement */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-gradient-to-b from-white to-gray-50/50">
         <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <article className="prose prose-lg max-w-none">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                Votre Boulangerie Artisanale à Chavagne - Vanessa & Baptiste
+          <div className="max-w-5xl mx-auto">
+            {/* Titre principal plus discret */}
+            <div className="text-center mb-10">
+              <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                Votre Boulangerie Artisanale à Chavagne
               </h2>
+              <p className="text-sm text-gray-500">Vanessa & Baptiste - Depuis 2010</p>
+            </div>
 
-              <div className="grid md:grid-cols-2 gap-8 text-gray-700">
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Boulangerie Traditionnelle à Chavagne (35310)
-                  </h3>
-                  <p className="mb-4 leading-relaxed">
-                    Située au cœur de <strong>Chavagne</strong>, la <strong>Boulangerie Vanessa & Baptiste</strong> est
-                    votre <strong>boulangerie artisanale</strong> de référence depuis 2010. Nous sommes des <strong>artisans
-                    boulangers</strong> passionnés, spécialisés dans la fabrication de <strong>pain traditionnel</strong>,
-                    de <strong>pâtisseries fines</strong> et de <strong>chocolats artisanaux</strong>.
-                  </p>
-                  <p className="mb-4 leading-relaxed">
-                    Notre <strong>boulangerie à Chavagne</strong> propose une large gamme de <strong>pains frais</strong>
-                    cuits quotidiennement : <strong>baguette tradition</strong>, pain de campagne, pain aux céréales,
-                    pain complet et bien d&apos;autres spécialités. Tous nos produits sont fabriqués sur place avec
-                    des ingrédients de qualité sélectionnés auprès de fournisseurs locaux.
-                  </p>
-                </div>
-
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">
-                    Pâtisserie et Chocolaterie Artisanale
-                  </h3>
-                  <p className="mb-4 leading-relaxed">
-                    En tant que <strong>pâtissiers chocolatiers</strong> expérimentés, nous créons des
-                    <strong> pâtisseries sur-mesure</strong> pour toutes vos occasions : anniversaires, mariages,
-                    baptêmes et événements professionnels. Notre <strong>chocolaterie artisanale</strong> propose
-                    des créations uniques : truffes, pralinés, ganaches et ballotins personnalisés.
-                  </p>
-                  <p className="mb-4 leading-relaxed">
-                    Découvrez également nos <strong>viennoiseries</strong> fraîches chaque matin : croissants,
-                    pains au chocolat, pains aux raisins, chaussons aux pommes. Notre équipe de 15 collaborateurs
-                    met tout son savoir-faire au service de votre gourmandise.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-8 bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Boulangerie Ouverte à Chavagne - Ille-et-Vilaine (35)
+            {/* Texte principal plus aéré et moins dense */}
+            <div className="grid md:grid-cols-2 gap-10 mb-10">
+              <div className="bg-white/50 rounded-xl p-6 backdrop-blur-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                  <span className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-2 text-primary text-sm">1</span>
+                  Boulangerie Traditionnelle
                 </h3>
-                <div className="grid md:grid-cols-3 gap-6 text-gray-700">
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Nos Spécialités</h4>
-                    <ul className="space-y-1 text-sm">
-                      <li>• Pain artisanal et baguette tradition</li>
-                      <li>• Viennoiseries fraîches</li>
-                      <li>• Pâtisseries fines</li>
-                      <li>• Chocolats maison</li>
-                      <li>• Gâteaux personnalisés</li>
-                      <li>• Sandwichs et snacking</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Zones Desservies</h4>
-                    <p className="text-sm leading-relaxed">
-                      <strong>Boulangerie à Chavagne</strong> et communes environnantes :
-                      Rennes, L&apos;Hermitage, Mordelles, Cintré, Bruz, Saint-Grégoire.
-                      Livraison possible pour les commandes professionnelles et événements.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 mb-2">Pourquoi Nous Choisir ?</h4>
-                    <ul className="space-y-1 text-sm">
-                      <li>• 14 ans d&apos;expérience</li>
-                      <li>• Fabrication 100% artisanale</li>
-                      <li>• Ingrédients locaux</li>
-                      <li>• Produits frais quotidiens</li>
-                      <li>• Équipe de 15 professionnels</li>
-                      <li>• Service personnalisé</li>
-                    </ul>
-                  </div>
-                </div>
+                <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                  Située au cœur de Chavagne (35310), la Boulangerie Vanessa & Baptiste est votre
+                  boulangerie artisanale de référence depuis 2010. Artisans boulangers passionnés,
+                  nous sommes spécialisés dans la fabrication de pain traditionnel, pâtisseries fines
+                  et chocolats artisanaux.
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Large gamme de pains frais cuits quotidiennement : baguette tradition, pain de campagne,
+                  pain aux céréales et bien d&apos;autres spécialités. Tous nos produits sont fabriqués
+                  sur place avec des ingrédients de qualité.
+                </p>
               </div>
 
-              <div className="mt-8 text-center">
-                <p className="text-gray-600 mb-4">
-                  <strong>Boulangerie Vanessa & Baptiste</strong> - 1 Rue du Centre, 35310 Chavagne -
-                  Tél : <a href="tel:+33299643580" className="text-primary hover:underline">02 99 64 35 80</a>
+              <div className="bg-white/50 rounded-xl p-6 backdrop-blur-sm">
+                <h3 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
+                  <span className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mr-2 text-primary text-sm">2</span>
+                  Pâtisserie et Chocolaterie
+                </h3>
+                <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                  Pâtissiers chocolatiers expérimentés, nous créons des pâtisseries sur-mesure
+                  pour toutes vos occasions : anniversaires, mariages, baptêmes et événements
+                  professionnels. Notre chocolaterie artisanale propose des créations uniques.
                 </p>
-                <p className="text-sm text-gray-500">
-                  Mots-clés : boulangerie Chavagne, boulanger Chavagne, pâtisserie Chavagne, chocolaterie Chavagne,
-                  pain artisanal 35, boulangerie Rennes, boulangerie Ille-et-Vilaine, artisan boulanger 35310,
-                  baguette tradition Chavagne, pâtissier Chavagne
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Viennoiseries fraîches chaque matin : croissants, pains au chocolat, pains aux raisins,
+                  chaussons aux pommes. Notre équipe de 15 collaborateurs met tout son savoir-faire
+                  à votre service.
                 </p>
               </div>
-            </article>
+            </div>
+
+            {/* Section infos compacte */}
+            <div className="grid md:grid-cols-3 gap-4 mb-8">
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2">Nos Spécialités</h4>
+                <ul className="text-xs text-gray-600 space-y-1">
+                  <li>• Pain artisanal & baguette tradition</li>
+                  <li>• Viennoiseries & pâtisseries fines</li>
+                  <li>• Chocolats maison & gâteaux personnalisés</li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2">Zones Desservies</h4>
+                <p className="text-xs text-gray-600 leading-relaxed">
+                  Chavagne et environs : Rennes, L&apos;Hermitage, Mordelles, Cintré,
+                  Bruz, Saint-Grégoire.
+                </p>
+              </div>
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <h4 className="text-sm font-semibold text-gray-900 mb-2">Nos Atouts</h4>
+                <ul className="text-xs text-gray-600 space-y-1">
+                  <li>• 14 ans d&apos;expérience</li>
+                  <li>• Fabrication 100% artisanale</li>
+                  <li>• Équipe de 15 professionnels</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Contact et mots-clés très discrets */}
+            <div className="text-center border-t border-gray-200 pt-6">
+              <p className="text-sm text-gray-600 mb-2">
+                <strong>Boulangerie Vanessa & Baptiste</strong> - 1 Rue du Centre, 35310 Chavagne -
+                Tél : <a href="tel:+33299643580" className="text-primary hover:underline">02 99 64 35 80</a>
+              </p>
+              <p className="text-xs text-gray-400 opacity-50">
+                boulangerie Chavagne • pâtisserie Chavagne • chocolaterie Chavagne • pain artisanal 35 •
+                boulangerie Rennes • artisan boulanger 35310
+              </p>
+            </div>
           </div>
         </div>
       </section>

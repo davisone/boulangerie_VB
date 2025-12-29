@@ -12,7 +12,12 @@ interface CounterProps {
 export default function Counter({ end, duration = 2000, suffix = "", label }: CounterProps) {
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const counterRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -62,8 +67,8 @@ export default function Counter({ end, duration = 2000, suffix = "", label }: Co
 
   return (
     <div ref={counterRef}>
-      <div className="text-5xl font-bold mb-2">
-        {count}{suffix}
+      <div className="text-5xl font-bold mb-2" suppressHydrationWarning>
+        {mounted ? count : 0}<span className="text-2xl font-normal ml-1">{suffix}</span>
       </div>
       <div className="text-lg opacity-90">{label}</div>
     </div>
